@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.python
 Summary:	WWW gateway to LDAP server
 Summary(pl):	Bramka WWW do serwera LDAP
 Name:		web2ldap
