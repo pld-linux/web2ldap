@@ -26,6 +26,17 @@ This is:
   schema.
 - continously maintained software.
 
+%description -l pl
+To jest:
+- ogólny klient LDAPv3, nie czyni±cy ¿adnych za³o¿eñ dostycz±cych
+  struktury drzewa ani schemacie LDAP
+- narzêdzie do dostêpu i manipulacji na serwerach LDAP bez potrzeby
+  konfigurowania niczego
+- bezpieczny klient LDAP czysto loguj±cy siê
+- przegl±darka schematów wy¶wietlaj±ca odwo³ania i zale¿no¶ci wewn±trz
+  schematu LDAPv3
+- stale utrzymywane oprogramowanie.
+ 
 %prep
 %setup -q
 %patch0 -p1
