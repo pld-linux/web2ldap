@@ -1,0 +1,61 @@
+diff -durN web2ldap-0.11.9.orig/etc/web2ldap/web2ldapcnf/__init__.py web2ldap-0.11.9/etc/web2ldap/web2ldapcnf/__init__.py
+--- web2ldap-0.11.9.orig/etc/web2ldap/web2ldapcnf/__init__.py	Tue Jul 30 16:27:23 2002
++++ web2ldap-0.11.9/etc/web2ldap/web2ldapcnf/__init__.py	Thu Jan 16 15:30:06 2003
+@@ -13,19 +13,18 @@
+ import sys,os
+ 
+ # Directory where web2ldap is started
+-web2ldap_dir = os.path.dirname(os.path.dirname(os.path.abspath(sys.argv[0])))
++web2ldap_dir = '/usr/share/web2ldap'
+ 
+ # Default directory for [web2ldap]/var
+-var_dir = os.path.join(web2ldap_dir,'var')
+-#var_dir = '/var'
++var_dir = '/var'
+ 
+-# Default directory for [web2ldap]/var
+-etc_dir = os.path.join(web2ldap_dir,'etc')
+-#etc_dir = '/etc'
++# Default directory for [web2ldap]/etc
++etc_dir = '/etc'
+ 
+-# Default directory for [web2ldap]/var
++# Default directory for [web2ldap]/templates
+ templates_dir = os.path.join(web2ldap_dir,'templates')
+ 
+ # Several default sub-directories in [web2ldap]/var
+-for var_subdir in ['run','log','state']:
+-  vars()['var_'+var_subdir] = os.path.join(var_dir,var_subdir)
++var_run='/var/run/web2ldap'
++var_log='/var/log/web2ldap'
++var_state='/var/lib/web2ldap'
+diff -durN web2ldap-0.11.9.orig/etc/web2ldap/web2ldapcnf/fastcgi.py web2ldap-0.11.9/etc/web2ldap/web2ldapcnf/fastcgi.py
+--- web2ldap-0.11.9.orig/etc/web2ldap/web2ldapcnf/fastcgi.py	Wed Jul 31 23:55:18 2002
++++ web2ldap-0.11.9/etc/web2ldap/web2ldapcnf/fastcgi.py	Thu Jan 16 15:30:31 2003
+@@ -11,4 +11,4 @@
+ run_threaded = 1
+ 
+ # Path name of PID file
+-pid_file = '/tmp/fcgi/web2ldap-fastcgi.pid'
++pid_file = '/var/run/web2ldap/web2ldap-fastcgi.pid'
+diff -durN web2ldap-0.11.9.orig/etc/web2ldap/web2ldapcnf/scgi.py web2ldap-0.11.9/etc/web2ldap/web2ldapcnf/scgi.py
+--- web2ldap-0.11.9.orig/etc/web2ldap/web2ldapcnf/scgi.py	Tue Sep 17 14:28:07 2002
++++ web2ldap-0.11.9/etc/web2ldap/web2ldapcnf/scgi.py	Thu Jan 16 15:31:36 2003
+@@ -12,4 +12,4 @@
+ prefix = '/web2ldap-scgi/web2ldap.py'
+ 
+ # Path name of PID file
+-pid_file = '/tmp/web2ldap-scgi.pid'
++pid_file = '/var/run/web2ldap/web2ldap-scgi.pid'
+diff -durN web2ldap-0.11.9.orig/etc/web2ldap/web2ldapcnf/standalone.py web2ldap-0.11.9/etc/web2ldap/web2ldapcnf/standalone.py
+--- web2ldap-0.11.9.orig/etc/web2ldap/web2ldapcnf/standalone.py	Mon Sep 16 13:39:34 2002
++++ web2ldap-0.11.9/etc/web2ldap/web2ldapcnf/standalone.py	Thu Jan 16 15:32:45 2003
+@@ -11,7 +11,7 @@
+ import os,web2ldapcnf
+ 
+ # User account name to setuid after being started as root
+-run_username = 'web2ldaprun'
++run_username = 'http'
+ 
+ # Contact mail address of the server admin when running stand-alone
+ server_admin = 'admin@web2ldap.de'
