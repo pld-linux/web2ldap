@@ -37,7 +37,7 @@ To jest:
 - przegl±darka schematów wy¶wietlaj±ca odwo³ania i zale¿no¶ci wewn±trz
   schematu LDAPv3
 - stale utrzymywane oprogramowanie.
- 
+
 %prep
 %setup -q
 %patch0 -p1
