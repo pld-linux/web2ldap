@@ -13,7 +13,7 @@ URL:		http://www.web2ldap.de/
 %pyrequires_eq	python-modules
 Requires:	python-ldap
 Requires:	python-pyweblib
-BuildArch:      noarch
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
