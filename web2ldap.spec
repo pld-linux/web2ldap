@@ -31,7 +31,7 @@ This is:
 %patch0 -p1
 
 %build
-for dir in fcgi pylib scgi templates sbin; do
+for dir in pylib sbin fcgi scgi; do
 	python -c "import compileall; compileall.compile_dir('$dir')"
 	python -O -c "import compileall; compileall.compile_dir('$dir')"
 done
@@ -42,9 +42,11 @@ install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_sbindir},%{_datadir}/%{name}/htdocs
 		$RPM_BUILD_ROOT/var{/run,/lib,/log}/%{name}
 
 cp -R etc/web2ldap $RPM_BUILD_ROOT%{_sysconfdir}
-cp -R fcgi pylib scgi templates sbin htdocs/css $RPM_BUILD_ROOT%{_datadir}/%{name}
+cp -R fcgi pylib scgi templates sbin $RPM_BUILD_ROOT%{_datadir}/%{name}
 cp -R htdocs/css $RPM_BUILD_ROOT%{_datadir}/%{name}/htdocs
-find $RPM_BUILD_ROOT%{_datadir}/%{name} -name "*.py" | xargs rm
+find $RPM_BUILD_ROOT%{_datadir}/%{name}/pylib -name "*.py" | xargs rm
+rm $RPM_BUILD_ROOT%{_datadir}/%{name}/sbin/compile*
+rm $RPM_BUILD_ROOT%{_datadir}/%{name}/sbin/*.py
 echo '#!/bin/sh' > $RPM_BUILD_ROOT%{_sbindir}/%{name}
 echo 'exec python %{_datadir}/%{name}/sbin/%{name}.pyc $*' \
 	>> $RPM_BUILD_ROOT%{_sbindir}/%{name}
@@ -57,5 +59,19 @@ rm -rf $RPM_BUILD_ROOT
 %doc htdocs/* etc/httpd
 %attr(755,root,root) %{_sbindir}/*
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/%{name}
-%{_datadir}/%{name}
+
+%dir %{_datadir}/%{name}
+%{_datadir}/%{name}/pylib
+%{_datadir}/%{name}/htdocs
+%{_datadir}/%{name}/sbin
+%{_datadir}/%{name}/templates
+
+%dir %{_datadir}/%{name}/fcgi
+%attr(755,root,root) %{_datadir}/%{name}/fcgi/web2ldap.py
+%{_datadir}/%{name}/fcgi/*.py[co]
+
+%dir %{_datadir}/%{name}/scgi
+%attr(755,root,root) %{_datadir}/%{name}/scgi/web2ldap.py
+%{_datadir}/%{name}/scgi/*.py[co]
+
 %dir %attr(664,root,http) /var/*/%{name}
