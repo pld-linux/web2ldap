@@ -29,7 +29,7 @@ This is:
 
 %description -l pl
 To jest:
-- ogólny klient LDAPv3, nie czyni±cy ¿adnych za³o¿eñ dostycz±cych
+- ogólny klient LDAPv3, nie czyni±cy ¿adnych za³o¿eñ dotycz±cych
   struktury drzewa ani schemacie LDAP
 - narzêdzie do dostêpu i manipulacji na serwerach LDAP bez potrzeby
   konfigurowania niczego
