@@ -74,4 +74,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_datadir}/%{name}/scgi/web2ldap.py
 %{_datadir}/%{name}/scgi/*.py[co]
 
-%dir %attr(664,root,http) /var/*/%{name}
+%dir %attr(775,root,http) /var/*/%{name}
