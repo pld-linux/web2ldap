@@ -2,12 +2,12 @@
 Summary:	WWW gateway to LDAP server
 Summary(pl):	Bramka WWW do serwera LDAP
 Name:		web2ldap
-Version:	0.11.9
+Version:	0.11.24
 Release:	1
 License:	distributable (mostly GPL)
 Group:		Applications
 Source0:	http://www.web2ldap.de/download/%{name}-%{version}.tar.gz
-# Source0-md5:	03566fbb78ab2146dd696cf5ca6f7740
+# Source0-md5:	efa6b742740399f467a727bd0925e905
 Patch0:		%{name}-config.patch
 URL:		http://www.web2ldap.de/
 %pyrequires_eq	python-modules
@@ -54,7 +54,7 @@ install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_sbindir},%{_datadir}/%{name}/htdocs
 		$RPM_BUILD_ROOT/var{/run,/lib,/log}/%{name}
 
 cp -R etc/web2ldap $RPM_BUILD_ROOT%{_sysconfdir}
-cp -R fcgi pylib scgi templates sbin $RPM_BUILD_ROOT%{_datadir}/%{name}
+cp -R fcgi pylib scgi sbin $RPM_BUILD_ROOT%{_datadir}/%{name}
 cp -R htdocs/css $RPM_BUILD_ROOT%{_datadir}/%{name}/htdocs
 find $RPM_BUILD_ROOT%{_datadir}/%{name}/pylib -name "*.py" | xargs rm
 rm $RPM_BUILD_ROOT%{_datadir}/%{name}/sbin/compile*
@@ -76,7 +76,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/pylib
 %{_datadir}/%{name}/htdocs
 %{_datadir}/%{name}/sbin
-%{_datadir}/%{name}/templates
 
 %dir %{_datadir}/%{name}/fcgi
 %attr(755,root,root) %{_datadir}/%{name}/fcgi/web2ldap.py
