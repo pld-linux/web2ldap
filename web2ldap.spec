@@ -6,7 +6,8 @@ Release:	1
 License:	distributable (mostly GPL)
 Group:		Applications
 Source0:	http://www.web2ldap.de/download/%{name}-%{version}.tar.gz
-# Source0-md5:	efa6b742740399f467a727bd0925e905
+# Source0-md5:	b6c62e1717998f8519c488673b97632f
+# Source0-size:	224672
 Patch0:		%{name}-config.patch
 URL:		http://www.web2ldap.de/
 %pyrequires_eq	python-modules
