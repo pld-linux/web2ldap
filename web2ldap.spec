@@ -38,11 +38,12 @@ done
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_sbindir},%{_datadir}/%{name}} \
+install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_sbindir},%{_datadir}/%{name}/htdocs} \
 		$RPM_BUILD_ROOT/var{/run,/lib,/log}/%{name}
 
 cp -R etc/web2ldap $RPM_BUILD_ROOT%{_sysconfdir}
-cp -R fcgi pylib scgi templates sbin $RPM_BUILD_ROOT%{_datadir}/%{name}
+cp -R fcgi pylib scgi templates sbin htdocs/css $RPM_BUILD_ROOT%{_datadir}/%{name}
+cp -R htdocs/css $RPM_BUILD_ROOT%{_datadir}/%{name}/htdocs
 find $RPM_BUILD_ROOT%{_datadir}/%{name} -name "*.py" | xargs rm
 echo '#!/bin/sh' > $RPM_BUILD_ROOT%{_sbindir}/%{name}
 echo 'exec python %{_datadir}/%{name}/sbin/%{name}.pyc $*' \
