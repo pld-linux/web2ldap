@@ -11,7 +11,7 @@ Patch0:		%{name}-config.patch
 URL:		http://www.web2ldap.de/
 %pyrequires_eq	python-modules
 Requires:	python-ldap
-Requires:	python-PyWebLib
+Requires:	python-pyweblib
 BuildArch:      noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
