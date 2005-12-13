@@ -17,13 +17,13 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This is:
-- a generic LDAPv3 client which does not make any assumptions about the tree
-  structure or LDAP schema.
-- kind of a swiss-army knife for accessing/manipulating LDAP servers without
-  having to configure anything.
+- a generic LDAPv3 client which does not make any assumptions about
+  the tree structure or LDAP schema.
+- kind of a swiss-army knife for accessing/manipulating LDAP servers
+  without having to configure anything.
 - a secure LDAP client with clean login behaviour.
-- a schema browser which displays references/dependencies within an LDAPv3
-  schema.
+- a schema browser which displays references/dependencies within an
+  LDAPv3 schema.
 - continously maintained software.
 
 %description -l pl
@@ -67,9 +67,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS README htdocs/* etc/httpd 
+%doc AUTHORS README htdocs/* etc/httpd
 %attr(755,root,root) %{_sbindir}/*
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/%{name}
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}
 
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/pylib
