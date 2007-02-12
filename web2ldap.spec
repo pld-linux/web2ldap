@@ -1,5 +1,5 @@
 Summary:	WWW gateway to LDAP server
-Summary(pl):	Bramka WWW do serwera LDAP
+Summary(pl.UTF-8):   Bramka WWW do serwera LDAP
 Name:		web2ldap
 Version:	0.16.11
 Release:	1
@@ -26,14 +26,14 @@ This is:
   LDAPv3 schema.
 - continously maintained software.
 
-%description -l pl
+%description -l pl.UTF-8
 To jest:
-- ogólny klient LDAPv3, nie czyni±cy ¿adnych za³o¿eñ dotycz±cych
+- ogÃ³lny klient LDAPv3, nie czyniÄ…cy Å¼adnych zaÅ‚oÅ¼eÅ„ dotyczÄ…cych
   struktury drzewa ani schemacie LDAP
-- narzêdzie do dostêpu i manipulacji na serwerach LDAP bez potrzeby
+- narzÄ™dzie do dostÄ™pu i manipulacji na serwerach LDAP bez potrzeby
   konfigurowania niczego
-- bezpieczny klient LDAP czysto loguj±cy siê
-- przegl±darka schematów wy¶wietlaj±ca odwo³ania i zale¿no¶ci wewn±trz
+- bezpieczny klient LDAP czysto logujÄ…cy siÄ™
+- przeglÄ…darka schematÃ³w wyÅ›wietlajÄ…ca odwoÅ‚ania i zaleÅ¼noÅ›ci wewnÄ…trz
   schematu LDAPv3
 - stale utrzymywane oprogramowanie.
 
