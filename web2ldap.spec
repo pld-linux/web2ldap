@@ -1,5 +1,5 @@
 Summary:	WWW gateway to LDAP server
-Summary(pl.UTF-8):   Bramka WWW do serwera LDAP
+Summary(pl.UTF-8):	Bramka WWW do serwera LDAP
 Name:		web2ldap
 Version:	0.16.11
 Release:	1
