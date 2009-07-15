@@ -29,9 +29,9 @@ This is:
 %description -l pl.UTF-8
 To jest:
 - ogólny klient LDAPv3, nie czyniący żadnych założeń dotyczących
-  struktury drzewa ani schemacie LDAP
+  struktury drzewa ani schematu LDAP
 - narzędzie do dostępu i manipulacji na serwerach LDAP bez potrzeby
-  konfigurowania niczego
+  konfiguracji
 - bezpieczny klient LDAP czysto logujący się
 - przeglądarka schematów wyświetlająca odwołania i zależności wewnątrz
   schematu LDAPv3
