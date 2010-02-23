@@ -9,6 +9,8 @@ Source0:	http://www.web2ldap.de/download/%{name}-%{version}.tar.gz
 # Source0-md5:	07e0af60409817752b63e1d13c5c830d
 Patch0:		%{name}-config.patch
 URL:		http://www.web2ldap.de/
+BuildRequires:	python-modules
+BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-modules
 Requires:	python-ldap
 Requires:	python-pyweblib
