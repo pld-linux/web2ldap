@@ -1,12 +1,12 @@
 Summary:	WWW gateway to LDAP server
 Summary(pl.UTF-8):	Bramka WWW do serwera LDAP
 Name:		web2ldap
-Version:	1.1.0a27
+Version:	1.1.0a29
 Release:	1
 License:	distributable (mostly GPL)
 Group:		Applications
 Source0:	http://www.web2ldap.de/download/%{name}-%{version}.tar.gz
-# Source0-md5:	e72e2e4c1b3cd272612707ebcdd4b3f1
+# Source0-md5:	c7abb40d5e679c47bbebe5c45c265fe9
 Patch0:		%{name}-config.patch
 URL:		http://www.web2ldap.de/
 BuildRequires:	python-modules
@@ -54,12 +54,12 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_sbindir},%{_datadir}/%{name}/htdocs} \
 		$RPM_BUILD_ROOT/var{/run,/lib,/log}/%{name}
 
-cp -R etc/web2ldap $RPM_BUILD_ROOT%{_sysconfdir}
-cp -R fcgi pylib scgi sbin $RPM_BUILD_ROOT%{_datadir}/%{name}
-cp -R htdocs/css $RPM_BUILD_ROOT%{_datadir}/%{name}/htdocs
+cp -a etc/web2ldap $RPM_BUILD_ROOT%{_sysconfdir}
+cp -a fcgi pylib scgi sbin $RPM_BUILD_ROOT%{_datadir}/%{name}
+cp -a htdocs/css $RPM_BUILD_ROOT%{_datadir}/%{name}/htdocs
 find $RPM_BUILD_ROOT%{_datadir}/%{name}/pylib -name "*.py" | xargs rm
-rm $RPM_BUILD_ROOT%{_datadir}/%{name}/sbin/compile*
-rm $RPM_BUILD_ROOT%{_datadir}/%{name}/sbin/*.py
+%{__rm} $RPM_BUILD_ROOT%{_datadir}/%{name}/sbin/compile*
+%{__rm} $RPM_BUILD_ROOT%{_datadir}/%{name}/sbin/*.py
 echo '#!/bin/sh' > $RPM_BUILD_ROOT%{_sbindir}/%{name}
 echo 'exec python %{_datadir}/%{name}/sbin/%{name}.pyc $*' \
 	>> $RPM_BUILD_ROOT%{_sbindir}/%{name}
