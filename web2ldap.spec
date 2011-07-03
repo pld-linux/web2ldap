@@ -1,12 +1,12 @@
 Summary:	WWW gateway to LDAP server
 Summary(pl.UTF-8):	Bramka WWW do serwera LDAP
 Name:		web2ldap
-Version:	1.1.0a29
+Version:	1.1.0a36
 Release:	1
 License:	distributable (mostly GPL)
 Group:		Applications
 Source0:	http://www.web2ldap.de/download/%{name}-%{version}.tar.gz
-# Source0-md5:	c7abb40d5e679c47bbebe5c45c265fe9
+# Source0-md5:	1108808e7ac2bbd1026d071e59dba9f6
 Patch0:		%{name}-config.patch
 URL:		http://www.web2ldap.de/
 BuildRequires:	python-modules
