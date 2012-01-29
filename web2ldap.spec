@@ -8,6 +8,7 @@ Group:		Applications
 Source0:	http://www.web2ldap.de/download/%{name}-%{version}.tar.gz
 # Source0-md5:	1108808e7ac2bbd1026d071e59dba9f6
 Patch0:		%{name}-config.patch
+Patch1:		%{name}-paths.patch
 URL:		http://www.web2ldap.de/
 BuildRequires:	python-modules
 BuildRequires:	rpm-pythonprov
@@ -44,6 +45,7 @@ To jest:
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 for dir in pylib sbin fcgi scgi; do
