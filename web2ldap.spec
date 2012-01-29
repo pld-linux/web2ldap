@@ -11,6 +11,8 @@ Patch0:		%{name}-config.patch
 URL:		http://www.web2ldap.de/
 BuildRequires:	python-modules
 BuildRequires:	rpm-pythonprov
+Requires:	python-pyasn1
+Requires:	python-pyasn1_modules
 %pyrequires_eq	python-modules
 Requires:	python-ldap
 Requires:	python-pyweblib
