@@ -1,0 +1,19 @@
+--- web2ldap-1.1.0a36/etc/web2ldap/web2ldapcnf/__init__.py~	2009-08-19 01:44:29.000000000 +0200
++++ web2ldap-1.1.0a36/etc/web2ldap/web2ldapcnf/__init__.py	2012-01-29 14:18:57.184073497 +0100
+@@ -15,12 +15,12 @@
+ web2ldap_dir = os.path.dirname(os.path.dirname(os.path.abspath(sys.argv[0])))
+ 
+ # Default directory for [web2ldap]/var
+-var_dir = os.path.join(web2ldap_dir,'var')
+-#var_dir = '/var'
++#var_dir = os.path.join(web2ldap_dir,'var')
++var_dir = '/var'
+ 
+ # Default directory for [web2ldap]/var
+-etc_dir = os.path.join(web2ldap_dir,'etc')
+-#etc_dir = '/etc'
++#etc_dir = os.path.join(web2ldap_dir,'etc')
++etc_dir = '/etc'
+ 
+ # Default directory for [web2ldap]/var
+ templates_dir = os.path.join(etc_dir,os.path.join('web2ldap','templates'))
