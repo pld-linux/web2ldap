@@ -7,6 +7,7 @@ License:	distributable (mostly GPL)
 Group:		Applications
 Source0:	http://www.web2ldap.de/download/%{name}-%{version}.tar.gz
 # Source0-md5:	dd51bfcc7a639f90ca9c29a2bb977f48
+Source1:	%{name}.tmpfiles
 Patch0:		%{name}-config.patch
 Patch1:		%{name}-paths.patch
 URL:		http://www.web2ldap.de/
@@ -56,7 +57,8 @@ done
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_sbindir},%{_datadir}/%{name}/htdocs} \
-		$RPM_BUILD_ROOT/var{/run,/lib,/log}/%{name}
+		$RPM_BUILD_ROOT/var{/run,/lib,/log}/%{name} \
+		$RPM_BUILD_ROOT/usr/lib/tmpfiles.d
 
 cp -a etc/web2ldap $RPM_BUILD_ROOT%{_sysconfdir}
 cp -a fcgi pylib sbin $RPM_BUILD_ROOT%{_datadir}/%{name}
@@ -67,6 +69,8 @@ find $RPM_BUILD_ROOT%{_datadir}/%{name}/pylib -name "*.py" | xargs rm
 echo '#!/bin/sh' > $RPM_BUILD_ROOT%{_sbindir}/%{name}
 echo 'exec python %{_datadir}/%{name}/sbin/%{name}.pyc $*' \
 	>> $RPM_BUILD_ROOT%{_sbindir}/%{name}
+
+install %{SOURCE1} $RPM_BUILD_ROOT/usr/lib/tmpfiles.d/%{name}.conf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -86,4 +90,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_datadir}/%{name}/fcgi/web2ldap.py
 %{_datadir}/%{name}/fcgi/*.py[co]
 
+/usr/lib/tmpfiles.d/%{name}.conf
 %dir %attr(775,root,http) /var/*/%{name}
